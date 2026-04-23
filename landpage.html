@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CryptoX</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:linear-gradient(to bottom,#000,#111827);
+  color:white;
+  overflow-x:hidden;
+}
+
+/* 🔥 FLOATING 3D ORBS */
+.orb{
+  position:absolute;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:0.4;
+  animation:float 8s infinite ease-in-out;
+}
+
+.orb1{background:#00f5ff; top:10%; left:10%;}
+.orb2{background:#a855f7; top:60%; left:70%;}
+.orb3{background:#22c55e; top:40%; left:30%;}
+
+@keyframes float{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-30px);}
+  100%{transform:translateY(0px);}
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  border-bottom:1px solid #222;
+  backdrop-filter: blur(10px);
+}
+
+nav h1{
+  font-size:22px;
+}
+
+nav button{
+  background:white;
+  color:black;
+  padding:8px 16px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+nav button:hover{
+  transform:scale(1.05);
+}
+
+/* HERO */
+/* HERO LAYOUT */
+.hero{
+  padding:100px 20px;
+}
+
+.hero-content{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1100px;
+  margin:auto;
+  gap:40px;
+  animation:fadeUp 1s ease;
+}
+
+/* TEXT */
+.hero-text{
+  flex:1;
+}
+
+.hero-text h1{
+  font-size:55px;
+  margin-bottom:20px;
+  background:linear-gradient(90deg,#fff,#aaa);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero-text p{
+  color:#aaa;
+  margin-bottom:30px;
+}
+
+/* IMAGE */
+.hero-image{
+  flex:1;
+  display:flex;
+  justify-content:center;
+}
+
+.hero-image img{
+  width:280px;
+  border-radius:30px;
+  box-shadow:0 30px 60px rgba(0,0,0,0.6);
+  transform:rotate(-8deg);
+  animation:floatPhone 4s ease-in-out infinite;
+  transition:0.4s;
+}
+
+.hero-image img:hover{
+  transform:rotate(0deg) scale(1.05);
+}
+
+/* FLOAT ANIMATION */
+@keyframes floatPhone{
+  0%{transform:translateY(0px) rotate(-8deg);}
+  50%{transform:translateY(-20px) rotate(-6deg);}
+  100%{transform:translateY(0px) rotate(-8deg);}
+}
+
+/* MOBILE FIX */
+@media (max-width:768px){
+  .hero-content{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero-text h1{
+    font-size:32px;
+  }
+
+  .hero-image img{
+    width:220px;
+    margin-top:20px;
+  }
+}
+/* FEATURES */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding:60px;
+}
+
+.card{
+  background:#1f2937;
+  padding:20px;
+  border-radius:16px;
+  transition:0.4s;
+  transform:translateY(30px);
+  opacity:0;
+}
+
+.card.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* PORTFOLIO */
+.portfolio{
+  padding:60px;
+  animation:fadeUp 1s ease;
+}
+
+.wallet{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.wallet div{
+  background:#1f2937;
+  padding:20px;
+  border-radius:12px;
+  transition:0.3s;
+}
+
+.wallet div:hover{
+  transform:scale(1.05);
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-content{
+  background:#111827;
+  padding:30px;
+  border-radius:16px;
+  width:300px;
+  animation:zoomIn 0.4s ease;
+}
+
+.modal input{
+  width:100%;
+  margin-bottom:10px;
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  background:#1f2937;
+  color:white;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes zoomIn{
+  from{transform:scale(0.8); opacity:0;}
+  to{transform:scale(1); opacity:1;}
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  color:#aaa;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+/* NAVBAR */
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+  }
+
+  nav h1 {
+    font-size: 18px;
+  }
+
+  nav button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+/* HERO */
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 15px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero button {
+    width: 100%;
+    margin: 8px 0;
+  }
+}
+
+/* FEATURES */
+@media (max-width: 768px) {
+  .features {
+    padding: 30px 15px;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PORTFOLIO */
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 30px 15px;
+  }
+
+  .wallet {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MODAL */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+  }
+}
+
+/* ORBS (reduce for performance on mobile) */
+@media (max-width: 768px) {
+  .orb {
+    width: 120px;
+    height: 120px;
+    filter: blur(50px);
+  }
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 20px;
+  background: none;
+  color: white;
+}
+
+/* MOBILE NAV */
+@media (max-width:768px){
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #111827;
+    width: 100%;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links button {
+    width: 100%;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 3D BACKGROUND -->
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<!-- NAVBAR -->
+<nav>
+  <h1>CryptoX</h1>
+
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <div id="userArea" class="nav-links">
+    <button onclick="openModal()">Account</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>The Future of Crypto Trading</h1>
+      <p>Buy, sell, and manage your crypto assets easily.</p>
+
+      <button class="primary" onclick="openModal()" >Get Started</button>
+      <button class="secondary" onclick="window.location.href='learnmore.html'">
+  Learn More
+</button>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1640340434855-6084b1f4901c"
+           alt="Crypto App on Phone">
+    </div>
+  </div>
+
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="card">📈 Real-Time Trading</div>
+  <div class="card">🔒 Secure Wallet</div>
+  <div class="card">⚡ Fast Transactions</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio" style="display:none;">
+  <h2>Your Portfolio</h2>
+  <div class="wallet">
+    <div>Bitcoin: 0.45 BTC</div>
+    <div>Ethereum: 2.1 ETH</div>
+    <div>USDT: $1,200</div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Create Account</h3>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button onclick="login()">Done</button>
+    <button onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>© 2026 CryptoX</footer>
+
+<script>
+
+// LOGIN SYSTEM
+// LOGIN SYSTEM
+let user = null;
+
+function openModal() {
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+
+function login() {
+  const email = document.querySelector("#modal input[type='email']").value;
+  const password = document.querySelector("#modal input[type='password']").value;
+
+  // simple validation (you can expand later)
+  if (!email || !password) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  user = {
+    name: email.split("@")[0], // temporary username from email
+    email: email
+  };
+
+  closeModal();
+  renderUI();
+}
+
+function logout() {
+  user = null;
+  renderUI();
+}
+
+function renderUI() {
+  const userArea = document.getElementById("userArea");
+  const portfolio = document.getElementById("portfolio");
+
+  if (user) {
+    userArea.innerHTML = `
+      <span>Welcome, ${user.name}</span>
+      <button onclick="logout()">Logout</button>
+    `;
+    portfolio.style.display = "block";
+  } else {
+    userArea.innerHTML = `
+      <button onclick="openModal()">Login</button>
+    `;
+    portfolio.style.display = "none";
+  }
+}
+/* SCROLL ANIMATION */
+const cards = document.querySelectorAll(".card");
+
+window.addEventListener("scroll", () => {
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 50){
+      card.classList.add("show");
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
